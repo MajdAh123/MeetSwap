@@ -11,13 +11,15 @@ class TextFieldCustomeWidget extends StatefulWidget {
       this.maxLines = 1,
       required this.title,
       required this.hint,
-      this.widget = AppSize.sizedBoxEmpty});
+      this.widget = AppSize.sizedBoxEmpty,
+      this.onChange});
   final TextEditingController controller;
   final bool validateBorder;
   final String title;
   final String hint;
   final Widget widget;
   final int maxLines;
+  final void Function(String)? onChange;
   @override
   State<TextFieldCustomeWidget> createState() => _TextFieldCustomeWidgetState();
 }
@@ -122,6 +124,7 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                             0.6), // background color of the TextField
                   ),
                   child: TextField(
+                    onChanged: widget.onChange,
                     controller: widget.controller,
                     focusNode: focusNode,
                     maxLines: widget.maxLines,

@@ -86,7 +86,7 @@ class UserPhotoView extends GetView<SignUpController> {
               ],
             ),
           ),
-          YallowBtn(
+          CustomeBtn(
             onTap: () => controller.nextCompleteView(),
             title: "Continue",
             padding: EdgeInsets.symmetric(

@@ -19,6 +19,7 @@ class SignUpView extends GetView<SignUpController> {
   Widget build(BuildContext context) {
     Get.put(SignUpController());
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: BackgroundWidget(
         child: Column(
           children: [
@@ -47,7 +48,7 @@ class SignUpView extends GetView<SignUpController> {
                             style: TextStyle(color: AppColor.red, height: 0.3),
                           ),
                         ),
-                        YallowBtn(
+                        CustomeBtn(
                             btnColor: controller.isSend.isTrue
                                 ? AppColor.white
                                 : AppColor.yallow,

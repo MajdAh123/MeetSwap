@@ -5,8 +5,8 @@ import 'package:meetswap/App/SignUp/Models/InterestsModel.dart';
 import 'package:meetswap/Constant/Colors.dart';
 import 'package:meetswap/Constant/Size.dart';
 
-class InterstesView extends GetView<SignUpController> {
-  const InterstesView({super.key});
+class InterstesViewSignUp extends GetView<SignUpController> {
+  const InterstesViewSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -24,17 +24,6 @@ class RingingAnimationPainter extends CustomPainter {
       double alpha = (1.0 - progress).clamp(0.0, 1.0);
       paint.color = AppColor.white.withOpacity(alpha);
       canvas.drawCircle(Offset(centerX, centerY), currentRadius, paint);
-
-      // Draw intermediate rings
-      // double intermediateRadius1 = radius * (1 + progress + 0.15);
-      // double intermediateAlpha1 = (1.0 - progress - 0.075).clamp(0.0, 1.0);
-      // paint.color = AppColor.white.withOpacity(intermediateAlpha1);
-      // canvas.drawCircle(Offset(centerX, centerY), intermediateRadius1, paint);
-
-      // double intermediateRadius2 = radius * (1 + progress + 0.3);
-      // double intermediateAlpha2 = (1.0 - progress - 0.15).clamp(0.0, 1.0);
-      // paint.color = AppColor.white.withOpacity(intermediateAlpha2);
-      // canvas.drawCircle(Offset(centerX, centerY), intermediateRadius2, paint);
     }
   }
 
@@ -63,20 +52,21 @@ class _RingingAnimationWidgetState extends State<RingingAnimationWidget>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: Duration(milliseconds: 2000), // Increased duration
     )..addListener(() {
         setState(() {
           // Update ring progresses
           ringProgresses = ringProgresses.map((progress) {
-            return progress + 0.01;
+            return progress + 0.0025; // Slower increment
           }).toList();
           ringProgresses.removeWhere((progress) => progress > 1.0);
         });
       });
     _controller.repeat();
 
-    // Add new ring immediately and then every 0.5 seconds
-    _timer = Timer.periodic(Duration(milliseconds: 500), (Timer timer) {
+    // Add new ring immediately and then every 1 second
+    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+      // Increased period
       setState(() {
         ringProgresses.add(0.0);
       });

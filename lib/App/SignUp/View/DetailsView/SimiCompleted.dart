@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meetswap/App/Home/View/HomePageView.dart';
 import 'package:meetswap/App/SignUp/View/CompleteProfile/CompeteProfileScreen.dart';
 import 'package:meetswap/App/SignUp/View/DetailsView/InterstesView.dart';
 import 'package:meetswap/App/Widgets/YallowBtn.dart';
 import 'package:meetswap/Constant/Colors.dart';
 import 'package:meetswap/Constant/ImagesPath.dart';
 import 'package:meetswap/Constant/Size.dart';
+
+import '../../../Home/Bindings/HomeBindings.dart';
 
 class SimiCompletedView extends StatelessWidget {
   const SimiCompletedView({super.key});
@@ -171,7 +174,7 @@ class SimiCompletedView extends StatelessWidget {
                   ),
                 ),
                 Expanded(child: SizedBox()),
-                YallowBtn(
+                CustomeBtn(
                   onTap: () {
                     Get.to(() => CompleteProfileScreen());
                   },
@@ -180,7 +183,14 @@ class SimiCompletedView extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       horizontal: AppSize.paddingElements12),
                 ),
-                YallowBtn(onTap: () {}, title: "Do it later"),
+                CustomeBtn(
+                    onTap: () {
+                      Get.to(() => HomePageView(),
+                          binding: HomeBinding(),
+                          duration: Duration(milliseconds: 500),
+                          transition: Transition.leftToRightWithFade);
+                    },
+                    title: "Do it later"),
               ],
             ),
           ),

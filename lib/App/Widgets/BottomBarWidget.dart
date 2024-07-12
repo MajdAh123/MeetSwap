@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meetswap/App/Home/Controller/homePageController.dart';
@@ -23,7 +25,7 @@ class BottomBarWidget extends GetView<HomePageController> {
                 width: AppSize.width,
                 padding: EdgeInsets.symmetric(
                     horizontal: AppSize.paddingElements12 * 1),
-                color: AppColor.white.withOpacity(0.4),
+                color: AppColor.white.withOpacity(0.8),
                 height: 80,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,7 +51,7 @@ class BottomBarWidget extends GetView<HomePageController> {
                 top: 0,
                 right: AppSize.paddingElements12 * 3,
                 child: GestureDetector(
-                  onTap: () => controller.hundlePage(3),
+                  onTap: () => controller.setPageIndex(3),
                   child: Column(
                     children: [
                       Image.asset(AppImagesPath.userBotBarIcon),
@@ -87,7 +89,9 @@ class BottomBarItemWidget extends GetView<HomePageController> {
   Widget build(BuildContext context) {
     return Obx(
       () => InkWell(
-        onTap: () => controller.hundlePage(index),
+        overlayColor:
+            MaterialStateColor.resolveWith((states) => Colors.transparent),
+        onTap: () => controller.setPageIndex(index),
         child: SizedBox(
           width: AppSize.width * 0.2,
           child: Column(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meetswap/App/Home/Bindings/HomeBindings.dart';
+import 'package:meetswap/App/Home/View/HomePageView.dart';
 import 'package:meetswap/App/SignUp/Controller/SignUpController.dart';
 import 'package:meetswap/App/Widgets/TextFieldCustome.dart';
 import 'package:meetswap/App/Widgets/YallowBtn.dart';
@@ -26,12 +28,28 @@ class GreetView extends GetView<SignUpController> {
             ),
             AppSize.sizedBox10,
             TextFieldCustomeWidget(
+                onChange: (p0) {
+                  if (!p0.startsWith("\n\n")) {
+                    controller.greetController.value.text = "\n\n$p0";
+                  }
+                  if (p0 == "\n\n") {
+                    controller.greetController.value.clear();
+                  }
+                  print(p0.length);
+                },
                 maxLines: 7,
                 controller: controller.greetController.value,
                 title: "",
                 hint: "\n\nEnter your greet message here..."),
             Expanded(child: SizedBox()),
-            YallowBtn(onTap: () {}, title: "Continue")
+            CustomeBtn(
+                onTap: () {
+                  Get.to(() => HomePageView(),
+                      binding: HomeBinding(),
+                      duration: Duration(milliseconds: 500),
+                      transition: Transition.leftToRightWithFade);
+                },
+                title: "Continue")
           ],
         ),
         Positioned.fill(

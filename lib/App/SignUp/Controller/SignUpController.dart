@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'dart:ui';
+import 'package:meetswap/App/SignUp/Controller/BlurController.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,10 +8,9 @@ import 'package:get/get.dart';
 import 'package:meetswap/App/SignUp/View/SignUpDetailsViewPage.dart';
 import 'package:meetswap/Constant/ImagesPath.dart';
 import 'package:meetswap/Constant/policy.dart';
-// import 'package:open_mail_app/open_mail_app.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../Components/SelectImage.dart';
+import '../View/DetailsView/SimiCompleted.dart';
 
 class SignUpController extends GetxController {
   RxBool isSend = false.obs, isLogIn = false.obs;
@@ -25,6 +26,7 @@ class SignUpController extends GetxController {
   RxBool isMale = false.obs;
   RxList<int> addedInterestes = <int>[].obs;
   Rx<File> userPhoto = File("").obs;
+  var showBlur = false.obs;
   // XFile? userPhoto;
   var userDOB = DateTime(DateTime.now().year - AppPolicy.minimumeYear,
           DateTime.now().month, DateTime.now().day)
@@ -78,7 +80,40 @@ class SignUpController extends GetxController {
     if (currentIndex.value == 0 && usernameController.value.text == "123") {
       userNameValedation.value = "That username already exists";
     }
-    currentIndex.value++;
+
+    if (currentIndex.value == 2) {
+      showBlur.value = true;
+      Get.find<BlurController>().startBlurAnimation();
+      Get.dialog(
+        // Scaffold(
+        //   backgroundColor: Colors.transparent,
+        //   body: GetBuilder(
+        //       init: BlurController(),
+        //       builder: (controller) {
+        //         return Stack(
+        //           children: [
+        //             Positioned.fill(
+        //               child: CustomPaint(
+        //                 painter: BlurPainter(
+        //                   blurValue: controller.blurAnimation.value,
+        //                   radiusValue: controller.radiusAnimation.value,
+        //                 ),
+        //                 child: Container(),
+        //               ),
+        //             ),
+        //             Center(
+        //               child: SimiCompletedView(),
+        //             ),
+        //           ],
+        //         );
+        //       }),
+        // ),
+        DialogWithAnimation(),
+        barrierDismissible: true,
+      );
+    } else {
+      currentIndex.value++;
+    }
   }
 
   void previuosView() {
@@ -88,6 +123,10 @@ class SignUpController extends GetxController {
     } else {
       Get.back();
     }
+  }
+
+  void hideBlur() {
+    showBlur.value = false;
   }
 
   void changeGanderToFemale() {
@@ -149,9 +188,119 @@ class SignUpController extends GetxController {
   }
 
   @override
-  void onInit() {
+  void onReady() {
     _preloadImages();
-    // TODO: implement onInit
-    super.onInit();
+    // TODO: implement onReady
+    super.onReady();
+  }
+  // @override
+  // void onreaddy() {
+
+  //   // TODO: implement onInit
+  //   super.onInit();
+  // }
+}
+
+class BlurPainter extends CustomPainter {
+  final double blurValue;
+  final double radiusValue;
+
+  BlurPainter({required this.blurValue, required this.radiusValue});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..imageFilter = ImageFilter.blur(
+          sigmaX: blurValue, sigmaY: blurValue, tileMode: TileMode.mirror);
+    // ..shader = RadialGradient(
+    //   // center: Alignment.center,
+    //   // radius: radiusValue,
+    //   colors: [
+    //     Colors.black.withOpacity(0.2),
+    //     Colors.black.withOpacity(0.5),
+    //   ],
+    //   stops: [0.5, 1.0],
+    // ).createShader(Rect.fromLTWH(0, 0, size.width, size.height)
+    // );
+
+    canvas.drawRect(
+      Rect.fromLTWH(0, 0, size.width, size.height),
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:meetswap/App/SignUp/Controller/BlurController.dart';
+
+class DialogWithAnimation extends StatefulWidget {
+  @override
+  _DialogWithAnimationState createState() => _DialogWithAnimationState();
+}
+
+class _DialogWithAnimationState extends State<DialogWithAnimation>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    )..forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final blurController = Get.find<BlurController>();
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: GetBuilder<BlurController>(
+          init: blurController,
+          builder: (controller) {
+            return Opacity(
+              opacity: _animationController.value,
+              child: Stack(
+                children: [
+                  // Positioned.fill(
+                  //   child: CustomPaint(
+                  //     painter: BlurPainter(
+                  //       blurValue: controller.blurAnimation.value,
+                  //       radiusValue: controller.radiusAnimation.value,
+                  //     ),
+                  //     child: Container(),
+                  //   ),
+                  // ),
+                  Center(
+                    child: ScaleTransition(
+                      scale: CurvedAnimation(
+                        parent: _animationController,
+                        curve: Curves.easeOut,
+                      ),
+                      child: SimiCompletedView(),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 }

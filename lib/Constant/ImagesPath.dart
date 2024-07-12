@@ -38,4 +38,26 @@ class AppImagesPath {
   static const String gateBotBarIcon = "assets/images/Gate (Active).png";
   static const String lobbyBotBarIcon = "assets/images/Lobby (Active).png";
   static const String chatBotBarIcon = "assets/images/Chats (Active).png";
+  static const String getBackground = "assets/images/gateBackground.png";
+  static const String blueScann = "assets/images/Group 611 (5).png";
+  static const String scanCover = "assets/images/Blue Scan (1).png";
+  static const String backgroundGateCard = "assets/images/image 158.png";
+  static const String flagGateCard = "assets/images/із 1.png";
+  static const String cutaionOneGateCard = "assets/images/“.png";
+  static const String cutaionTwoGateCard = "assets/images/“ (1).png";
+  static const String sayHey = "assets/images/Say _Hi_ icon.png";
+  static const String skipIconGateCard = "assets/images/Skip icon.png";
+  static const String puaseIconGateCard = "assets/images/Pause icon.png";
+  static const String swippingBackground = "assets/images/Group 659.png";
+  static const String backgroundLobbyView = "assets/images/Group 661.png";
+  static const String filterIconLobby = "assets/images/filterIcon.png";
+  static const String popUpLobbyCard = "assets/images/Union.png";
+  static const String searchIcon = "assets/images/search.png";
+  static const String dateIcon = "assets/images/Time Circle.png";
+  static const String locationIcon = "assets/images/Location.png";
+  static const String dangerIcon = "assets/images/Danger.png";
+  static const String closeIcon = "assets/images/Close Square.png";
+  static const String chatIconFreindProfile = "assets/images/Chat.png";
+  static const String optionsIconFreindProfile = "assets/images/Layer_1.png";
+  static const String blockWarning = "assets/images/Prohibited.png";
 }

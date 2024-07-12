@@ -1,7 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meetswap/App/SignUp/Controller/BlurController.dart';
 import 'package:meetswap/App/SignUp/Controller/SignUpController.dart';
 import 'package:meetswap/App/SignUp/View/DetailsView/GanderAndDOBView.dart';
 import 'package:meetswap/App/SignUp/View/DetailsView/InterstesView.dart';
@@ -15,81 +15,121 @@ import 'package:meetswap/Constant/Size.dart';
 
 import 'DetailsView/SimiCompleted.dart';
 
-class SignUpDetailsView extends GetView<SignUpController> {
-  const SignUpDetailsView({super.key});
+class SignUpDetailsView extends StatelessWidget {
+  SignUpDetailsView({super.key});
+  final blurController = Get.put(BlurController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BackgroundWidget(
-          child: Obx(
-        () => Stack(
+        child: Stack(
           children: [
-            Column(
-              children: [
-                AppSize.sizedBox20,
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: StatusBarWidget(
+            Obx(() {
+              return Column(
+                children: [
+                  AppSize.sizedBox20,
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: StatusBarWidget(
                       totalSteps: 3,
-                      currentStep: controller.currentIndex.value),
-                ),
-                Row(
-                  children: [
-                    BackButtonWidget(
-                      onTap: () => controller.previuosView(),
+                      currentStep:
+                          Get.find<SignUpController>().currentIndex.value,
                     ),
-                  ],
-                ),
-                Expanded(
-                    child: IndexedStack(
-                  index: controller.currentIndex.value,
-                  children: [
-                    UserNameView(),
-                    GanderAndDOBView(),
-                    InterstesView(),
-                    ImageFiltered(
-                      imageFilter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                      child: InterstesView(),
-                    ),
-
-                    // SimiCompletedView()
-                  ],
-                )),
-              ],
-            ),
-            Positioned(
-                bottom: 0,
-                left: AppSize.paddingElements12 / 2,
-                right: AppSize.paddingElements12 / 2,
-                child: Container(
-                  decoration: controller.currentIndex.value != 2
-                      ? BoxDecoration()
-                      : BoxDecoration(boxShadow: [
-                          BoxShadow(
-                              color: AppColor.borderColor.withOpacity(0.5),
-                              offset: Offset(40, 40),
-                              blurRadius: 40,
-                              spreadRadius: 100)
-                        ]),
-                  child: YallowBtn(
-                      onTap: () => controller.nextView(), title: "Continue"),
-                )),
-            controller.currentIndex.value == 3
-                ? Stack(
+                  ),
+                  Row(
                     children: [
-                      Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black.withOpacity(0.7),
+                      Opacity(
+                        opacity: Get.find<SignUpController>().showBlur.isTrue
+                            ? 0.4
+                            : 1,
+                        child: BackButtonWidget(
+                          onTap: () =>
+                              Get.find<SignUpController>().previuosView(),
+                        ),
                       ),
-                      SimiCompletedView(),
                     ],
-                  )
-                : SizedBox(),
+                  ),
+                  Expanded(
+                    child: IndexedStack(
+                      index: Get.find<SignUpController>().currentIndex.value,
+                      children: [
+                        UserNameView(),
+                        GanderAndDOBView(),
+                        GetBuilder<BlurController>(builder: (controller_) {
+                          return ImageFiltered(
+                              imageFilter: ImageFilter.blur(
+                                  sigmaX: controller_.blurAnimation.value,
+                                  sigmaY: controller_.blurAnimation.value),
+                              child: InterstesViewSignUp());
+                        }),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            }),
+            Positioned(
+              bottom: 0,
+              left: AppSize.paddingElements12 / 2,
+              right: AppSize.paddingElements12 / 2,
+              child: Obx(() {
+                return Container(
+                  decoration:
+                      Get.find<SignUpController>().currentIndex.value != 2
+                          ? BoxDecoration()
+                          : BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColor.borderColor.withOpacity(0.5),
+                                  offset: Offset(40, 40),
+                                  blurRadius: 40,
+                                  spreadRadius: 100,
+                                ),
+                              ],
+                            ),
+                  child: CustomeBtn(
+                    onTap: () => Get.find<SignUpController>().nextView(),
+                    title: "Continue",
+                  ),
+                );
+              }),
+            ),
           ],
         ),
-      )),
+      ),
     );
+  }
+}
+
+class BlurPainter extends CustomPainter {
+  final double blurValue;
+  final double radiusValue;
+
+  BlurPainter({required this.blurValue, required this.radiusValue});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..imageFilter = ImageFilter.blur(sigmaX: blurValue, sigmaY: blurValue)
+      ..shader = RadialGradient(
+        center: Alignment.center,
+        radius: radiusValue,
+        colors: [
+          Colors.transparent,
+          Colors.black.withOpacity(0.7),
+        ],
+        stops: [0.5, 1.0],
+      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+
+    canvas.drawRect(
+      Rect.fromLTWH(0, 0, size.width, size.height),
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
