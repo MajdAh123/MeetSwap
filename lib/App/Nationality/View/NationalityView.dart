@@ -2,6 +2,7 @@ import 'package:country/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meetswap/App/Nationality/Controller/NationalityController.dart';
+import 'package:meetswap/App/Widgets/SearchContainer.dart';
 import 'package:meetswap/App/Widgets/YallowBtn.dart';
 import 'package:meetswap/App/Widgets/backgroundWidget.dart';
 import 'package:meetswap/Constant/Colors.dart';
@@ -52,30 +53,10 @@ class NationalityView extends GetView<NationalityController> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(AppSize.paddingElements12),
-                child: Container(
-                  height: 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColor.white.withOpacity(.8)),
-                  child: TextField(
-                    cursorHeight: 25,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 2, horizontal: AppSize.paddingElements12),
-                        prefixIcon: Image.asset(AppImagesPath.searchIcon),
-                        hintText: "Search",
-                        hintStyle: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black.withOpacity(0.5))),
-                    onChanged: (value) {
-                      controller.onWhileSearching(value);
-                      // controller.allCountries.value = controller.allCountries.where()
-                    },
-                  ),
-                ),
+              SearchContainer(
+                onchange: (value) {
+                  controller.onWhileSearching(value);
+                },
               ),
               Expanded(
                   child: controller.allCountries.isEmpty
@@ -92,7 +73,7 @@ class NationalityView extends GetView<NationalityController> {
                                 () => Directionality(
                                   textDirection: TextDirection.rtl,
                                   child: RadioListTile<Country>(
-                                    activeColor: Colors.black,
+                                    activeColor: AppColor.teal,
                                     visualDensity: VisualDensity.comfortable,
                                     value: country,
                                     groupValue:

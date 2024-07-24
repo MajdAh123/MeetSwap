@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meetswap/App/Chat/View/HomeChatView.dart';
 import 'package:meetswap/App/Home/Controller/homePageController.dart';
 import 'package:meetswap/App/Widgets/BottomBarWidget.dart';
 import 'package:meetswap/App/Widgets/backgroundWidget.dart';
+import 'package:meetswap/Constant/Colors.dart';
 import 'package:meetswap/Constant/Size.dart';
 import 'package:animations/animations.dart';
 import '../../Gate/View/GatePage.dart';
@@ -16,8 +18,6 @@ class HomePageView extends GetView<HomePageController> {
     return Obx(
       () => BackgroundWidget(
         child: Scaffold(
-          backgroundColor: Colors.transparent,
-          // bottomNavigationBar: ,
           body: Stack(
             children: [
               SizedBox(
@@ -41,7 +41,7 @@ class HomePageView extends GetView<HomePageController> {
                     key: ValueKey<int>(controller.currentPageIndex.value),
                     index: controller.currentPageIndex.value,
                     children: [
-                      Container(),
+                      HomeChatViewPage(),
                       LobbyViewScreen(),
                       GatePageScreen(),
                       Container(),

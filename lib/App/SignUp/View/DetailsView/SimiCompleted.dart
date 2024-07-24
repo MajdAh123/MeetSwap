@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meetswap/App/Home/View/HomePageView.dart';
+import 'package:meetswap/App/SignUp/Controller/BlurController.dart';
 import 'package:meetswap/App/SignUp/View/CompleteProfile/CompeteProfileScreen.dart';
 import 'package:meetswap/App/SignUp/View/DetailsView/InterstesView.dart';
 import 'package:meetswap/App/Widgets/YallowBtn.dart';
@@ -10,9 +11,14 @@ import 'package:meetswap/Constant/Size.dart';
 
 import '../../../Home/Bindings/HomeBindings.dart';
 
-class SimiCompletedView extends StatelessWidget {
+class SimiCompletedView extends StatefulWidget {
   const SimiCompletedView({super.key});
 
+  @override
+  State<SimiCompletedView> createState() => _SimiCompletedViewState();
+}
+
+class _SimiCompletedViewState extends State<SimiCompletedView> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -177,6 +183,7 @@ class SimiCompletedView extends StatelessWidget {
                 CustomeBtn(
                   onTap: () {
                     Get.to(() => CompleteProfileScreen());
+                    Get.delete<BlurController>();
                   },
                   title: "Finsih profile",
                   defultPaddeing: false,
@@ -189,6 +196,7 @@ class SimiCompletedView extends StatelessWidget {
                           binding: HomeBinding(),
                           duration: Duration(milliseconds: 500),
                           transition: Transition.leftToRightWithFade);
+                      Get.delete<BlurController>();
                     },
                     title: "Do it later"),
               ],

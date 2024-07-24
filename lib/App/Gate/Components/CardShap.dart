@@ -38,7 +38,7 @@ class CustomShapeCard extends StatelessWidget {
                     clipper: CustomShapeClipper(),
                     child: Container(
                       width: AppSize.width,
-                      height: AppSize.height * 0.68,
+                      height: AppSize.height - 270,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         image: DecorationImage(

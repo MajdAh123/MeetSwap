@@ -60,4 +60,8 @@ class AppImagesPath {
   static const String chatIconFreindProfile = "assets/images/Chat.png";
   static const String optionsIconFreindProfile = "assets/images/Layer_1.png";
   static const String blockWarning = "assets/images/Prohibited.png";
+  static const String notificationIcons =
+      "assets/images/Bell-Notification--Streamline-Flex.png";
+  static const String notificationImage = "assets/images/3404370 1.png";
+  static const String groupChatImage = "assets/images/image 207.png";
 }

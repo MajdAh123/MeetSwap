@@ -4,6 +4,7 @@ import 'package:meetswap/App/Home/Components/UserImageTopBar.dart';
 import 'package:meetswap/App/Lobby/Controller/LobbyController.dart';
 import 'package:meetswap/App/Lobby/View/LobbyFilterView/FilterViewPage.dart';
 import 'package:meetswap/App/Lobby/View/LobbyViews/LobbyCardsView.dart';
+import 'package:meetswap/App/Notifcation/View/NotificationView.dart';
 import 'package:meetswap/Constant/Colors.dart';
 import 'package:meetswap/Constant/ImagesPath.dart';
 import 'package:meetswap/Constant/Size.dart';
@@ -37,22 +38,45 @@ class LobbyViewScreen extends GetView<LobbyController> {
                             !controller.isLobbyEmpty.value;
                       },
                       child: UserImageTopBar()),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(right: AppSize.paddingElements12),
-                    child: GestureDetector(
-                      onTap: () => Get.bottomSheet(LobbyFilterPage(),
-                          isScrollControlled: true),
-                      child: CircleAvatar(
-                        radius: 22,
-                        backgroundColor: AppColor.white.withOpacity(0.6),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(AppImagesPath.filterIconLobby),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            right: AppSize.paddingElements12),
+                        child: GestureDetector(
+                          onTap: () => Get.to(() => const NotificationView(),
+                              transition: Transition
+                                  .rightToLeftWithFade, // Specify the transition here
+                              duration: const Duration(milliseconds: 500)),
+                          child: CircleAvatar(
+                            radius: 22,
+                            backgroundColor: AppColor.white.withOpacity(0.6),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child:
+                                  Image.asset(AppImagesPath.notificationIcons),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  )
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            right: AppSize.paddingElements12),
+                        child: GestureDetector(
+                          onTap: () => Get.bottomSheet(LobbyFilterPage(),
+                              isScrollControlled: true),
+                          child: CircleAvatar(
+                            radius: 22,
+                            backgroundColor: AppColor.white.withOpacity(0.6),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Image.asset(AppImagesPath.filterIconLobby),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               controller.isLobbyEmpty.value

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meetswap/App/Home/Controller/homePageController.dart';
 import 'package:meetswap/App/Lobby/Controller/LobbyController.dart';
 import 'package:meetswap/App/Lobby/View/FriendProfile/FriendProfileView.dart';
+import 'package:meetswap/App/SignUp/Controller/BlurController.dart';
 import 'package:meetswap/Constant/Colors.dart';
 import 'package:meetswap/Constant/Size.dart';
 import '../../../../Constant/ImagesPath.dart';
@@ -56,6 +57,7 @@ class _LobbyCardsViewState extends State<LobbyCardsView> {
                           //       .rightToLeftWithFade, // Specify the transition here
                           //   duration: const Duration(milliseconds: 500),
                           // );
+                          Get.lazyPut<BlurController>(() => BlurController());
                           Get.bottomSheet(
                               FreindProfileView(
                                 isrequest: index == 4,

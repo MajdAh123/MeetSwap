@@ -12,6 +12,7 @@ class BlurController extends GetxController with SingleGetTickerProviderMixin {
   @override
   void onInit() {
     super.onInit();
+    // resetController();
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
@@ -28,13 +29,20 @@ class BlurController extends GetxController with SingleGetTickerProviderMixin {
           });
   }
 
+  void resetController() {
+    _animationController.reset();
+    update();
+  }
+
   void startBlurAnimation() {
     _animationController.forward(from: 0);
   }
 
   @override
   void onClose() {
-    _animationController.dispose();
+    Future.delayed(Duration(seconds: 1))
+        .then((vaue) => _animationController.dispose());
+
     super.onClose();
   }
 }

@@ -75,7 +75,7 @@ class ReportFriendView extends GetView<LobbyController> {
                   () => Directionality(
                     textDirection: TextDirection.rtl,
                     child: RadioListTile(
-                      activeColor: Colors.black,
+                      activeColor: AppColor.teal,
                       title: Text(
                         allReportReasons[index],
                         textAlign: TextAlign.end,

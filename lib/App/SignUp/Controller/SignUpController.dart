@@ -85,29 +85,6 @@ class SignUpController extends GetxController {
       showBlur.value = true;
       Get.find<BlurController>().startBlurAnimation();
       Get.dialog(
-        // Scaffold(
-        //   backgroundColor: Colors.transparent,
-        //   body: GetBuilder(
-        //       init: BlurController(),
-        //       builder: (controller) {
-        //         return Stack(
-        //           children: [
-        //             Positioned.fill(
-        //               child: CustomPaint(
-        //                 painter: BlurPainter(
-        //                   blurValue: controller.blurAnimation.value,
-        //                   radiusValue: controller.radiusAnimation.value,
-        //                 ),
-        //                 child: Container(),
-        //               ),
-        //             ),
-        //             Center(
-        //               child: SimiCompletedView(),
-        //             ),
-        //           ],
-        //         );
-        //       }),
-        // ),
         DialogWithAnimation(),
         barrierDismissible: true,
       );
@@ -260,6 +237,7 @@ class _DialogWithAnimationState extends State<DialogWithAnimation>
   @override
   void dispose() {
     _animationController.dispose();
+
     super.dispose();
   }
 
