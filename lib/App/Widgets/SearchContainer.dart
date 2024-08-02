@@ -4,8 +4,10 @@ import 'package:meetswap/Constant/ImagesPath.dart';
 import 'package:meetswap/Constant/Size.dart';
 
 class SearchContainer extends StatelessWidget {
-  const SearchContainer({super.key, required this.onchange});
+  const SearchContainer(
+      {super.key, required this.onchange, this.hint = "Search"});
   final void Function(String)? onchange;
+  final String hint;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +24,7 @@ class SearchContainer extends StatelessWidget {
                 contentPadding: const EdgeInsets.symmetric(
                     vertical: 2, horizontal: AppSize.paddingElements12),
                 prefixIcon: Image.asset(AppImagesPath.searchIcon),
-                hintText: "Search",
+                hintText: hint,
                 hintStyle: TextStyle(
                     fontSize: 15, color: Colors.black.withOpacity(0.5))),
             onChanged: onchange),

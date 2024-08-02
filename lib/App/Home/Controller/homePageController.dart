@@ -1,5 +1,6 @@
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:get/get.dart';
+import 'package:meetswap/App/Chat/Controllers/ChatController.dart';
 import 'package:meetswap/App/Gate/Controller/GateController.dart';
 import 'package:meetswap/App/Interestes/Controller/InterestsController.dart';
 import 'package:meetswap/App/Lobby/Controller/LobbyController.dart';
@@ -19,6 +20,9 @@ class HomePageController extends GetxController {
     if (index == 2 && Get.find<GateController>().isCardView.value) {
       Get.find<GateController>().cardSwiperController =
           CardSwiperController().obs;
+    }
+    if (index == 0) {
+      Get.find<ChatController>().indecatorHomeIndex.value = 0;
     }
     //  else {
     //   // Get.find<GateController>().changeViewing();

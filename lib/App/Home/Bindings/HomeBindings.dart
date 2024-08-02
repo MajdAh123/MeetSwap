@@ -10,10 +10,10 @@ import '../../Nationality/Controller/NationalityController.dart';
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
+    Get.put<ChatController>(ChatController(), permanent: true);
     Get.put<HomePageController>(HomePageController(), permanent: true);
     Get.put<GateController>(GateController(), permanent: true);
     Get.put<LobbyController>(LobbyController(), permanent: true);
-    Get.put<ChatController>(ChatController(), permanent: true);
 
     Get.lazyPut<NationalityController>(() => NationalityController(),
         fenix: true);

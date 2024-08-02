@@ -5,8 +5,8 @@ import 'package:meetswap/App/Widgets/SearchContainer.dart';
 import 'package:meetswap/App/Widgets/backgroundWidget.dart';
 import 'package:meetswap/Constant/Size.dart';
 
-class PersoneChatViewPage extends StatelessWidget {
-  const PersoneChatViewPage({super.key});
+class MyFriendsChatViewPage extends StatelessWidget {
+  const MyFriendsChatViewPage({super.key});
 
   @override
   Widget build(BuildContext context) {

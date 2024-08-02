@@ -21,17 +21,19 @@ class SliderGroupChatView extends GetView<ChatController> {
           children: [
             Expanded(
               child: PageView.builder(
-                controller: controller.groupController.value,
+                controller: controller.groupHomeController.value,
                 onPageChanged: (value) =>
-                    controller.chabgeActiveIndecator(value),
+                    controller.changeHomeActiveIndecator(value),
                 itemCount: 4,
-                itemBuilder: (context, index) => GroupOfGroupChat(),
+                itemBuilder: (context, index) => GroupOfGroupChat(
+                  count: 4,
+                ),
               ),
             ),
             AnimatedSmoothIndicator(
-              activeIndex: controller.indecatorIndex.value,
+              activeIndex: controller.indecatorHomeIndex.value,
               count: 4,
-              onDotClicked: (index) => controller.changeGroupView(index),
+              onDotClicked: (index) => controller.changeGroupHomeView(index),
               effect: const SlideEffect(
                   dotWidth: 8,
                   dotHeight: 8,

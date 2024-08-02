@@ -34,8 +34,9 @@ class RingingAnimationPainter extends CustomPainter {
 }
 
 class RingingAnimationWidget extends StatefulWidget {
-  const RingingAnimationWidget({super.key, required this.widget_});
-
+  const RingingAnimationWidget(
+      {super.key, required this.widget_, required this.size_});
+  final Size size_;
   final Widget widget_;
   @override
   _RingingAnimationWidgetState createState() => _RingingAnimationWidgetState();
@@ -88,11 +89,11 @@ class _RingingAnimationWidgetState extends State<RingingAnimationWidget>
         children: [
           CustomPaint(
             painter: RingingAnimationPainter(ringProgresses: ringProgresses),
-            size: Size(200, 200), // Set max size to 400x400
+            size: widget.size_, // Set max size to 400x400
           ),
           Container(
-            width: 200,
-            height: 200,
+            width: widget.size_.width,
+            height: widget.size_.height,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
             ),

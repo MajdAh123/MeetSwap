@@ -64,4 +64,20 @@ class AppImagesPath {
       "assets/images/Bell-Notification--Streamline-Flex.png";
   static const String notificationImage = "assets/images/3404370 1.png";
   static const String groupChatImage = "assets/images/image 207.png";
+  static const String emptyChatImage = "assets/images/emptychat.png";
+  static const String sendIcon = "assets/images/Send.png";
+  static const String imageIcon = "assets/images/Image.png";
+  static const String voiceIcon = "assets/images/Voice.png";
+  static const String dimondIcon = "assets/images/diamond.png";
+  static const String locationRedIcon = "assets/images/Group 512.png";
+  static const String fireIcon = "assets/images/Fire.png";
+  static const String pinIcon = "assets/images/Pushpin.png";
+  static const String backgroundGroupCard = "assets/images/Rectangle 205.png";
+  static const String usergroup = "assets/images/usergroup.png";
+  static const String chatBubble = "assets/images/Chat-Bubble.png";
+  static const String copyIcon = "assets/images/copyIcon.png";
+  static const String privateIcon = "assets/images/privategroup.png";
+  static const String freegroup = "assets/images/freegroup.png";
+  static const String flagRace = "assets/images/flagrace.png";
+  // static const String usergroup = "assets/images/";
 }

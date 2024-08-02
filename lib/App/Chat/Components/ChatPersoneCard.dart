@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:meetswap/App/Chat/View/PersoneChatViewPage.dart';
+import 'package:meetswap/App/Chat/View/ChatPersoneViewPage.dart';
+import 'package:meetswap/App/Chat/View/MyFriendsChatViewPage.dart';
 
 import '../../../Constant/Colors.dart';
 import '../../../Constant/ImagesPath.dart';
@@ -14,7 +15,11 @@ class ChatPersoneCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => ChatPersonViewPage(),
+            transition: Transition.rightToLeftWithFade,
+            duration: Duration(milliseconds: 500));
+      },
       child: Container(
         margin: EdgeInsets.only(bottom: 8),
         padding: EdgeInsets.all(AppSize.paddingElements12),

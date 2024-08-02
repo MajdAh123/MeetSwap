@@ -28,6 +28,7 @@ class UserPhotoView extends GetView<SignUpController> {
           ),
           Expanded(flex: 2, child: SizedBox()),
           RingingAnimationWidget(
+              size_: Size(200, 200),
               widget_: controller.userPhoto.value.path == ""
                   ? Image.asset(AppImagesPath.userPhoto)
                   : Container(

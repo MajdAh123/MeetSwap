@@ -82,7 +82,7 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                 decoration: BoxDecoration(
                   borderRadius: widget.maxLines == 1
                       ? BorderRadius.circular(12)
-                      : BorderRadius.circular(25),
+                      : BorderRadius.circular(12),
                   gradient: LinearGradient(
                     colors: widget.validateBorder
                         ? [
@@ -117,7 +117,7 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                   decoration: BoxDecoration(
                     borderRadius: widget.maxLines == 1
                         ? BorderRadius.circular(12)
-                        : BorderRadius.circular(25),
+                        : BorderRadius.circular(12),
                     color: focusNode.hasFocus
                         ? AppColor.white
                         : AppColor.white.withOpacity(
@@ -128,9 +128,9 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                     controller: widget.controller,
                     focusNode: focusNode,
                     maxLines: widget.maxLines,
-                    textAlign: widget.maxLines == 1
-                        ? TextAlign.start
-                        : TextAlign.center,
+                    // textAlign: widget.maxLines == 1
+                    //     ? TextAlign.start
+                    //     : TextAlign.center,
                     decoration: InputDecoration(
                       icon: widget.widget,
                       contentPadding:
@@ -140,23 +140,23 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                       hintStyle: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.w400,
-                          fontSize: widget.maxLines == 1 ? 16 : 20),
+                          fontSize: 16),
                       border: OutlineInputBorder(
                         borderRadius: widget.maxLines == 1
                             ? BorderRadius.circular(12)
-                            : BorderRadius.circular(25),
+                            : BorderRadius.circular(12),
                         borderSide: BorderSide.none,
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: widget.maxLines == 1
                             ? BorderRadius.circular(12)
-                            : BorderRadius.circular(25),
+                            : BorderRadius.circular(12),
                         borderSide: BorderSide.none,
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: widget.maxLines == 1
                             ? BorderRadius.circular(12)
-                            : BorderRadius.circular(25),
+                            : BorderRadius.circular(12),
                         borderSide: BorderSide.none,
                       ),
                     ),
