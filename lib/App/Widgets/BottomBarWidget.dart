@@ -99,6 +99,7 @@ class BottomBarItemWidget extends GetView<HomePageController> {
             children: [
               Image.asset(
                 image,
+                width: 30,
                 color: index == controller.currentPageIndex.value
                     ? AppColor.activeBotBarColor
                     : AppColor.inactiveBotBarColor,

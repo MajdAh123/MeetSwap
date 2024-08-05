@@ -97,7 +97,10 @@ class RecordingChatingWidget extends GetView<BottomBarChatingController> {
                                 controller.isRecording.isFalse
                             ? Row(
                                 children: [
-                                  Image.asset(AppImagesPath.sendIcon),
+                                  Image.asset(
+                                    AppImagesPath.sendIcon,
+                                    width: 22,
+                                  ),
                                   AppSize.sizedBox20
                                 ],
                               )
@@ -124,8 +127,11 @@ class RecordingChatingWidget extends GetView<BottomBarChatingController> {
                         backgroundColor: controller.isRecording.isTrue
                             ? AppColor.yallow
                             : AppColor.white,
-                        child:
-                            Center(child: Image.asset(AppImagesPath.voiceIcon)),
+                        child: Center(
+                            child: Image.asset(
+                          AppImagesPath.voiceIcon,
+                          width: 22,
+                        )),
                       ),
                     )),
               )

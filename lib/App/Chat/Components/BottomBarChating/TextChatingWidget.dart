@@ -23,7 +23,10 @@ class TextChatingWidget extends GetView<BottomBarChatingController> {
                     radius: 25,
                     backgroundColor: AppColor.white,
                     child: Center(
-                      child: Image.asset(AppImagesPath.imageIcon),
+                      child: Image.asset(
+                        AppImagesPath.imageIcon,
+                        width: 22,
+                      ),
                     ),
                   ),
                 ),
@@ -55,7 +58,10 @@ class TextChatingWidget extends GetView<BottomBarChatingController> {
                       ),
                     ),
                     if (controller.messageTextEditing.value.text.isNotEmpty)
-                      Image.asset(AppImagesPath.sendIcon)
+                      Image.asset(
+                        AppImagesPath.sendIcon,
+                        width: 22,
+                      )
                   ],
                 )),
           ),
@@ -74,7 +80,11 @@ class TextChatingWidget extends GetView<BottomBarChatingController> {
                     backgroundColor: controller.isRecording.isTrue
                         ? AppColor.yallow
                         : AppColor.white,
-                    child: Center(child: Image.asset(AppImagesPath.voiceIcon)),
+                    child: Center(
+                        child: Image.asset(
+                      AppImagesPath.voiceIcon,
+                      width: 22,
+                    )),
                   ),
                 )),
           )

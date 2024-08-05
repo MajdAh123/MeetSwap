@@ -77,6 +77,7 @@ class SignUpController extends GetxController {
   }
 
   void nextView() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (currentIndex.value == 0 && usernameController.value.text == "123") {
       userNameValedation.value = "That username already exists";
     }
@@ -94,6 +95,7 @@ class SignUpController extends GetxController {
   }
 
   void previuosView() {
+    FocusManager.instance.primaryFocus?.unfocus();
     print("object");
     if (currentIndex.value != 0) {
       currentIndex.value--;
@@ -134,12 +136,14 @@ class SignUpController extends GetxController {
   }
 
   void nextCompleteView() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (completeCurrentIndex.value < 2) {
       completeCurrentIndex.value++;
     }
   }
 
   void previuosCompleteView() {
+    FocusManager.instance.primaryFocus?.unfocus();
     print("object");
     if (completeCurrentIndex.value != 0) {
       completeCurrentIndex.value--;

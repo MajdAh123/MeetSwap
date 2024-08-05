@@ -34,7 +34,8 @@ class SliderGroupChatView extends GetView<ChatController> {
               activeIndex: controller.indecatorHomeIndex.value,
               count: 4,
               onDotClicked: (index) => controller.changeGroupHomeView(index),
-              effect: const SlideEffect(
+              effect: const WormEffect(
+                  // type: SlideTyp.,
                   dotWidth: 8,
                   dotHeight: 8,
                   activeDotColor: AppColor.yallow,
