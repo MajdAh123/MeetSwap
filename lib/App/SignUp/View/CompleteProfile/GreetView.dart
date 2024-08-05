@@ -28,19 +28,10 @@ class GreetView extends GetView<SignUpController> {
             ),
             AppSize.sizedBox10,
             TextFieldCustomeWidget(
-                onChange: (p0) {
-                  if (!p0.startsWith("\n\n")) {
-                    controller.greetController.value.text = "\n\n$p0";
-                  }
-                  if (p0 == "\n\n") {
-                    controller.greetController.value.clear();
-                  }
-                  print(p0.length);
-                },
                 maxLines: 7,
                 controller: controller.greetController.value,
                 title: "",
-                hint: "\n\nEnter your greet message here..."),
+                hint: "Enter your greet message here..."),
             Expanded(child: SizedBox()),
             CustomeBtn(
                 onTap: () {

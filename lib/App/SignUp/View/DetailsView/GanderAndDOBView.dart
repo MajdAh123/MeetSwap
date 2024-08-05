@@ -67,7 +67,7 @@ class GanderAndDOBView extends GetView<SignUpController> {
                   // primaryColor: AppColor.blue,
 
                   dateTimePickerTextStyle: TextStyle(
-                    color: AppColor.white,
+                    color: Colors.black,
                     fontSize: 20,
                   ),
                 ),
