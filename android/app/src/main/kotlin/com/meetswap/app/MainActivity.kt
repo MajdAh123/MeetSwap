@@ -1,4 +1,4 @@
-package com.example.meetswap
+package com.meetswap.app
 
 import android.content.Intent
 import android.os.Bundle
