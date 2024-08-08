@@ -38,7 +38,7 @@ class _AnimatedBorderWidgetState extends State<AnimatedBorderWidget>
         return Container(
           padding: EdgeInsets.all(3), // padding to show the gradient border
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(15),
             gradient: LinearGradient(
               colors: [
                 ColorTween(begin: AppColor.white, end: AppColor.borderColor)

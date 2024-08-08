@@ -81,8 +81,8 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                     EdgeInsets.all(3), // padding to show the gradient border
                 decoration: BoxDecoration(
                   borderRadius: widget.maxLines == 1
-                      ? BorderRadius.circular(12)
-                      : BorderRadius.circular(12),
+                      ? BorderRadius.circular(15)
+                      : BorderRadius.circular(15),
                   gradient: LinearGradient(
                     colors: widget.validateBorder
                         ? [

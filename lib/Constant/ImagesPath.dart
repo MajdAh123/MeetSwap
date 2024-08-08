@@ -79,5 +79,7 @@ class AppImagesPath {
   static const String privateIcon = "assets/images/privategroup.png";
   static const String freegroup = "assets/images/freegroup.png";
   static const String flagRace = "assets/images/flagrace.png";
+  static const String yallowShadowGate = "assets/images/Yellow Glow.png";
+  static const String circulerGate = "assets/images/Group 742.png";
   // static const String usergroup = "assets/images/";
 }
