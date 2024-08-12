@@ -15,29 +15,7 @@ class MyGroupViewSlider extends GetView<ChatController> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            AppSize.sizedBox10,
-            InkWell(
-                onTap: () {
-                  Get.back();
-                  controller.indecatorMyGroupIndex.value = 0;
-                },
-                child: Icon(
-                  Icons.arrow_back_ios_new,
-                  size: 20,
-                )),
-            Expanded(
-                child: SearchContainer(
-              onchange: (value) {},
-              hint: model.hint,
-            )),
-          ],
-        ),
-        TitleBetweenArrows(
-            textcolor: Colors.black45,
-            child: Image.asset(model.image),
-            title: model.title.toUpperCase()),
+        AppSize.sizedBox5,
         Expanded(
           child: ListView.builder(
             itemCount: 1,

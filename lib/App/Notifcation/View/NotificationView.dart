@@ -47,7 +47,7 @@ class NotificationView extends StatelessWidget {
                 ],
               ),
             ),
-            // EmptyNotificationView()
+            // EmptyNotificationView(),
             NotifcationCardView()
           ],
         ),

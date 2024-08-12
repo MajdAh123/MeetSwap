@@ -35,6 +35,28 @@ class UserCardView extends GetView<GateController> {
           AppImagesPath.musicIcon
         ],
       ),
+      CustomShapeCard(
+        username: 'Mike',
+        age: 30,
+        country: 'USA',
+        description: 'Love to travel and explore new places!',
+        interests: const [
+          AppImagesPath.eventsIcon,
+          AppImagesPath.sportIcon,
+          AppImagesPath.musicIcon
+        ],
+      ),
+      CustomShapeCard(
+        username: 'Mike',
+        age: 30,
+        country: 'USA',
+        description: 'Love to travel and explore new places!',
+        interests: const [
+          AppImagesPath.eventsIcon,
+          AppImagesPath.sportIcon,
+          AppImagesPath.musicIcon
+        ],
+      ),
       // Add more CustomShapeCard instances here...
     ];
 
@@ -54,12 +76,19 @@ class UserCardView extends GetView<GateController> {
           Obx(
             () => Expanded(
               child: CardSwiper(
+                // backCardOffset: Offset(50, 3),
+
                 padding: EdgeInsets.all(0),
                 cardBuilder: (context, index, horizontalOffsetPercentage,
                         verticalOffsetPercentage) =>
                     cards[index],
+
                 cardsCount: cards.length,
-                numberOfCardsDisplayed: 1,
+                backCardOffset: Offset.fromDirection(
+                  0.8,
+                ),
+                // maxAngle: 20,
+                numberOfCardsDisplayed: cards.length,
                 controller: controller.cardSwiperController.value,
                 onSwipe: (previousIndex, currentIndex, direction) =>
                     controller.resetCountDown(),

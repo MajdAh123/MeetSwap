@@ -31,7 +31,11 @@ class CustomShapeCard extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(AppSize.paddingElements12 * 2),
-            child: SizedBox(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: AppColor.seconderyColor,
+              ),
               child: Stack(
                 children: [
                   ClipPath(

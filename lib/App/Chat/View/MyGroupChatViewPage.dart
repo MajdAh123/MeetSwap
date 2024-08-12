@@ -29,6 +29,37 @@ class MyGroupChatViewPage extends GetView<ChatController> {
                 children: [
                   AppSize.sizedBox20,
                   AppSize.sizedBox10,
+                  Row(
+                    children: [
+                      AppSize.sizedBox10,
+                      InkWell(
+                          onTap: () {
+                            Get.back();
+                            controller.indecatorMyGroupIndex.value = 0;
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios_new,
+                            size: 20,
+                          )),
+                      Expanded(
+                          child: SearchContainer(
+                              onchange: (value) {},
+                              hint: allMyGroupSlids[
+                                      controller.indecatorMyGroupIndex.value]
+                                  .hint
+
+                              // "model.hint",
+                              )),
+                    ],
+                  ),
+                  TitleBetweenArrows(
+                      textcolor: Colors.black45,
+                      child: Image.asset(allMyGroupSlids[
+                              controller.indecatorMyGroupIndex.value]
+                          .image),
+                      title: allMyGroupSlids[
+                              controller.indecatorMyGroupIndex.value]
+                          .title),
                   Expanded(
                     child: PageView.builder(
                         controller: controller.myGroupController.value,
@@ -52,7 +83,7 @@ class MyGroupChatViewPage extends GetView<ChatController> {
                           count: allMyGroupSlids.length,
                           onDotClicked: (index) =>
                               controller.changeMyGroupView(index),
-                          effect: const SlideEffect(
+                          effect: const WormEffect(
                               dotWidth: 8,
                               dotHeight: 8,
                               activeDotColor: AppColor.yallow,

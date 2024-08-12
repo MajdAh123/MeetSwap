@@ -38,7 +38,7 @@ class ChatGroupCard extends StatelessWidget {
           //             Colors.white54,
           //           ])
           //     : null,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(25),
           color: Colors.white54),
       child: Stack(
         children: [
