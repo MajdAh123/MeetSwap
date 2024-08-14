@@ -4,17 +4,21 @@ import 'package:meetswap/Constant/Size.dart';
 import '../../../Constant/ImagesPath.dart';
 
 class ChatGroupCard extends StatelessWidget {
-  const ChatGroupCard({super.key, this.istranding = false});
+  const ChatGroupCard(
+      {super.key, this.istranding = false, this.isInDialog = false});
   final bool istranding;
+  final bool isInDialog;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: AppSize.width * .47,
       height: AppSize.width * .4,
-      margin: EdgeInsets.only(
-          right: AppSize.width * .015,
-          left: AppSize.width * .015,
-          bottom: AppSize.width * .03),
+      margin: isInDialog
+          ? EdgeInsets.zero
+          : EdgeInsets.only(
+              right: AppSize.width * .015,
+              left: AppSize.width * .015,
+              bottom: AppSize.width * .03),
       padding: EdgeInsets.all(AppSize.paddingElements12 * .7),
       decoration: BoxDecoration(
           image: istranding

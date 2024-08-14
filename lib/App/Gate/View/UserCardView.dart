@@ -64,7 +64,7 @@ class UserCardView extends GetView<GateController> {
       children: [
         Positioned(
             right: 0,
-            top: 40,
+            // top: 40,
             child: Image.asset(AppImagesPath.swippingBackground)),
         Column(children: [
           AppSize.sizedBox20,

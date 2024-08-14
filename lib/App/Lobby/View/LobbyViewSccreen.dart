@@ -27,8 +27,6 @@ class LobbyViewScreen extends GetView<LobbyController> {
             ),
           Column(
             children: [
-              AppSize.sizedBox20,
-              AppSize.sizedBox20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

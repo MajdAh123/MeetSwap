@@ -26,8 +26,8 @@ class GatePageView extends StatelessWidget {
             )),
             child: Column(
               children: [
-                AppSize.sizedBox20,
-                AppSize.sizedBox10,
+                // AppSize.sizedBox20,
+                // AppSize.sizedBox10,
                 Padding(
                   padding: const EdgeInsets.all(AppSize.paddingElements12),
                   child: Row(
@@ -51,7 +51,9 @@ class GatePageView extends StatelessWidget {
                           child: Column(
                         children: [
                           SizedBox(
-                            height: AppSize.height * 0.06,
+                            height: AppSize.height < 900
+                                ? AppSize.height * 0.06
+                                : AppSize.height * 0.1,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

@@ -30,46 +30,48 @@ class HomePageView extends GetView<HomePageController> {
             child: Obx(
               () => BackgroundWidget(
                 child: Scaffold(
-                  body: Stack(
-                    children: [
-                      SizedBox(
-                        width: AppSize.width,
-                        height: AppSize.height,
-                        child: PageTransitionSwitcher(
-                          duration: const Duration(milliseconds: 500),
-                          reverse: controller.currentPageIndex.value <
-                              controller.previousPageIndex.value,
-                          transitionBuilder: (Widget child,
-                              Animation<double> animation,
-                              Animation<double> secondaryAnimation) {
-                            return SharedAxisTransition(
-                              fillColor: Colors.transparent,
-                              animation: animation,
-                              secondaryAnimation: secondaryAnimation,
-                              transitionType:
-                                  SharedAxisTransitionType.horizontal,
-                              child: child,
-                            );
-                          },
-                          child: IndexedStack(
-                            key: ValueKey<int>(
-                                controller.currentPageIndex.value),
-                            index: controller.currentPageIndex.value,
-                            children: [
-                              HomeChatViewPage(),
-                              LobbyViewScreen(),
-                              GatePageScreen(),
-                              ProfileView(),
-                            ],
+                  body: SafeArea(
+                    child: Stack(
+                      children: [
+                        SizedBox(
+                          width: AppSize.width,
+                          height: AppSize.height,
+                          child: PageTransitionSwitcher(
+                            duration: const Duration(milliseconds: 500),
+                            reverse: controller.currentPageIndex.value <
+                                controller.previousPageIndex.value,
+                            transitionBuilder: (Widget child,
+                                Animation<double> animation,
+                                Animation<double> secondaryAnimation) {
+                              return SharedAxisTransition(
+                                fillColor: Colors.transparent,
+                                animation: animation,
+                                secondaryAnimation: secondaryAnimation,
+                                transitionType:
+                                    SharedAxisTransitionType.horizontal,
+                                child: child,
+                              );
+                            },
+                            child: IndexedStack(
+                              key: ValueKey<int>(
+                                  controller.currentPageIndex.value),
+                              index: controller.currentPageIndex.value,
+                              children: [
+                                HomeChatViewPage(),
+                                LobbyViewScreen(),
+                                GatePageScreen(),
+                                ProfileView(),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                          bottom: 0,
-                          right: 0,
-                          left: 0,
-                          child: BottomBarWidget())
-                    ],
+                        Positioned(
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            child: BottomBarWidget())
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -1,4 +1,6 @@
 class AppImagesPath {
+  // ignore: non_constant_identifier_names
+  // String ImagePath="assets/images";
   static const String logoWithcloud = "assets/images/Group 608.png";
   static const String continueWithleft = "assets/images/Vector 69.png";
   static const String continueWithright = "assets/images/Vector 67.png";
@@ -81,5 +83,30 @@ class AppImagesPath {
   static const String flagRace = "assets/images/flagrace.png";
   static const String yallowShadowGate = "assets/images/Yellow Glow.png";
   static const String circulerGate = "assets/images/Group 742.png";
+  static const String twoUserIcon = "assets/images/2 User.png";
+  static const String shainingImage =
+      "assets/images/toppng.com-glow-effect-png-535x534 1.png";
+  static const String daimonedIcon =
+      "assets/images/diamond-3d-rendering-icon-illustration-free-png 1.png";
+  static const String heartIconProfile =
+      "assets/images/Heart--Streamline-Flex.png";
+  static const String hiIconProfile = "assets/images/Union1.png";
+  static const String hdIconProfile = "assets/images/Group 682.png";
+  static const String securityIconProfile =
+      "assets/images/Shield-Lock--Streamline-Ultimate.png";
+  static const String supportIconProfile =
+      "assets/images/Headphones-Customer-Support--Streamline-Ultimate.png";
+  static const String termsIconProfile =
+      "assets/images/File-Paper-Document--Streamline-Ultimate.png";
+  static const String earnMeetswapCard = "assets/images/Group 743.png";
+  static const String editIcon = "assets/images/Vector.png";
+  static const String calanderIcon =
+      "assets/images/blank-calendar--blank-calendar-date-day-month-empty.png";
+
+  static const String goldBorder = "assets/images/Group 745.png";
+  static const String giftImage =
+      "assets/images/image-removebg-preview (62) 1.png";
+  // static const String usergroup = "assets/images/";
+  // static const String usergroup = "assets/images/";
   // static const String usergroup = "assets/images/";
 }

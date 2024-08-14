@@ -8,6 +8,7 @@ import 'package:meetswap/App/Interestes/Controller/InterestsController.dart';
 import 'package:meetswap/App/SignUp/Components/RingingWidget.dart';
 import 'package:meetswap/App/SignUp/Controller/BlurController.dart';
 import 'package:meetswap/App/Widgets/SearchContainer.dart';
+import 'package:meetswap/App/Widgets/SelectImageBottomSheet.dart';
 import 'package:meetswap/App/Widgets/TextFieldCustome.dart';
 import 'package:meetswap/App/Widgets/YallowBtn.dart';
 import 'package:meetswap/App/Widgets/backgroundWidget.dart';
@@ -81,7 +82,9 @@ class AddGroupInfoView extends GetView<CreateChatController> {
                         onTap: () {
                           // Get.put(BlurController()).startBlurAnimation();
 
-                          Get.bottomSheet(const SelectImageBottomSheet());
+                          Get.bottomSheet(SelectImageBottomSheet(
+                            controller: controller,
+                          ));
                         },
                         child: CircleAvatar(
                           radius: 10,
@@ -178,71 +181,6 @@ class AddGroupInfoView extends GetView<CreateChatController> {
               CustomeBtn(onTap: () {}, title: "Save")
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SelectImageBottomSheet extends GetView<CreateChatController> {
-  const SelectImageBottomSheet({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 140,
-      child: Padding(
-        padding: const EdgeInsets.all(AppSize.paddingElements12),
-        child: Row(
-          children: [
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  controller.capturePhoto();
-                  Get.back();
-                },
-                child: Container(
-                  // width: ,
-                  padding: EdgeInsets.all(AppSize.paddingElements12),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: AppColor.white, width: 2),
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColor.white.withOpacity(0.6)),
-                  child: Column(
-                    children: [
-                      Image.asset(AppImagesPath.cameraIcon),
-                      Text("Take a Photo")
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            AppSize.sizedBox10,
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  controller.selectImage();
-                  Get.back();
-                },
-                child: Container(
-                  // width: ,
-                  padding: EdgeInsets.all(AppSize.paddingElements12),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: AppColor.white, width: 2),
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColor.white.withOpacity(0.6)),
-                  child: Column(
-                    children: [
-                      Image.asset(AppImagesPath.galleryIcon),
-                      Text("Choose from Gallery")
-                    ],
-                  ),
-                ),
-              ),
-            )
-          ],
         ),
       ),
     );

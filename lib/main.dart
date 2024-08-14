@@ -13,6 +13,8 @@ void main() {
     systemNavigationBarColor: null, // navigation bar color
     statusBarColor: Colors.transparent, // status bar color
   ));
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   Get.put(SignUpController());
   runApp(const MyApp());

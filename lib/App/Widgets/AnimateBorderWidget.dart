@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 import '../../Constant/Colors.dart';
 
 class AnimatedBorderWidget extends StatefulWidget {
-  const AnimatedBorderWidget({super.key, required this.child});
+  const AnimatedBorderWidget(
+      {super.key,
+      required this.child,
+      this.beginColor = AppColor.white,
+      this.endColor = AppColor.borderColor});
   final Widget child;
+  final Color beginColor;
+  final Color endColor;
   @override
   State<AnimatedBorderWidget> createState() => _AnimatedBorderWidgetState();
 }
@@ -41,12 +47,12 @@ class _AnimatedBorderWidgetState extends State<AnimatedBorderWidget>
             borderRadius: BorderRadius.circular(15),
             gradient: LinearGradient(
               colors: [
-                ColorTween(begin: AppColor.white, end: AppColor.borderColor)
+                ColorTween(begin: widget.beginColor, end: widget.endColor)
                         .lerp(_controller.value) ??
-                    AppColor.white,
-                ColorTween(begin: AppColor.borderColor, end: AppColor.white)
+                    widget.beginColor,
+                ColorTween(begin: widget.endColor, end: widget.beginColor)
                         .lerp(_controller.value) ??
-                    AppColor.borderColor,
+                    widget.endColor,
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

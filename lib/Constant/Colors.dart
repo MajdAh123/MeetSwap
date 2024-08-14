@@ -17,6 +17,8 @@ class AppColor {
   static const Color teal = Color(0xff06EFE3);
   static const Color inactiveBotBarColor = Color.fromARGB(95, 0, 7, 24);
   static const Color activeBotBarColor = Color(0xff000000);
+  static const Color darkGold = Color(0xffFBE67B);
+  static const Color gold = Color(0xffF7D14E);
   static const LinearGradient linearGradientBackground = LinearGradient(
       colors: [Color(0xffB1B6E9), Color(0xffD9DBF4)],
       stops: [0, 100],

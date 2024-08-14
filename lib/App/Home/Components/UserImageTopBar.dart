@@ -11,7 +11,8 @@ class UserImageTopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: const EdgeInsets.all(AppSize.paddingElements12),
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppSize.paddingElements12),
       child: Row(
         children: [
           CircleAvatar(

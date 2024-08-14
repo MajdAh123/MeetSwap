@@ -30,12 +30,18 @@ class GanderAndDOBView extends GetView<SignUpController> {
                 onTap: () => controller.changeGanderToMale(),
                 child: Stack(
                   children: [
-                    Image.asset(controller.isMale.isTrue
-                        ? AppImagesPath.activeMale
-                        : AppImagesPath.anActiveMale),
+                    Image.asset(
+                      controller.isMale.isTrue
+                          ? AppImagesPath.activeMale
+                          : AppImagesPath.anActiveMale,
+                      width: AppSize.width * 0.44,
+                    ),
                     Positioned.fill(
-                        child:
-                            Center(child: Image.asset(AppImagesPath.maleIcon)))
+                        child: Center(
+                            child: Image.asset(
+                      AppImagesPath.maleIcon,
+                      width: 70,
+                    )))
                   ],
                 ),
               ),
@@ -44,11 +50,19 @@ class GanderAndDOBView extends GetView<SignUpController> {
                 onTap: () => controller.changeGanderToFemale(),
                 child: Stack(
                   children: [
-                    Image.asset(controller.isMale.isTrue
-                        ? AppImagesPath.anActiveFemale
-                        : AppImagesPath.activeFemale),
+                    Image.asset(
+                      controller.isMale.isTrue
+                          ? AppImagesPath.anActiveFemale
+                          : AppImagesPath.activeFemale,
+                      width: AppSize.width * 0.44,
+                    ),
                     Positioned.fill(
-                        child: Image.asset(AppImagesPath.femaleIcon)),
+                        child: Center(
+                      child: Image.asset(
+                        AppImagesPath.femaleIcon,
+                        width: 70,
+                      ),
+                    )),
                   ],
                 ),
               ),

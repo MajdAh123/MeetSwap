@@ -12,7 +12,11 @@ class TextFieldCustomeWidget extends StatefulWidget {
       required this.title,
       required this.hint,
       this.widget = AppSize.sizedBoxEmpty,
-      this.onChange});
+      this.onChange,
+      this.onTap,
+      this.readOnly = false,
+      this.suffixIcon = AppSize.sizedBoxEmpty,
+      this.keyboardType = TextInputType.text});
   final TextEditingController controller;
   final bool validateBorder;
   final String title;
@@ -20,6 +24,10 @@ class TextFieldCustomeWidget extends StatefulWidget {
   final Widget widget;
   final int maxLines;
   final void Function(String)? onChange;
+  final void Function()? onTap;
+  final bool readOnly;
+  final Widget suffixIcon;
+  final TextInputType keyboardType;
   @override
   State<TextFieldCustomeWidget> createState() => _TextFieldCustomeWidgetState();
 }
@@ -124,6 +132,9 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                             0.6), // background color of the TextField
                   ),
                   child: TextField(
+                    keyboardType: widget.keyboardType,
+                    readOnly: widget.readOnly,
+                    onTap: widget.onTap,
                     onChanged: widget.onChange,
                     controller: widget.controller,
                     focusNode: focusNode,
@@ -133,6 +144,7 @@ class _TextFieldCustomeWidgetState extends State<TextFieldCustomeWidget>
                     //     : TextAlign.center,
                     decoration: InputDecoration(
                       icon: widget.widget,
+                      suffixIcon: widget.suffixIcon,
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 1, vertical: 14),
                       hintText: widget.hint,

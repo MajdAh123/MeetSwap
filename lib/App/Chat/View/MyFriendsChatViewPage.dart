@@ -12,29 +12,31 @@ class MyFriendsChatViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundWidget(
       child: Scaffold(
-        body: Column(
-          children: [
-            AppSize.sizedBox20,
-            AppSize.sizedBox20,
-            Row(
-              children: [
-                AppSize.sizedBox10,
-                InkWell(
-                    onTap: () => Get.back(),
-                    child: Icon(
-                      Icons.arrow_back_ios_new,
-                      size: 20,
-                    )),
-                Expanded(child: SearchContainer(onchange: (value) {})),
-              ],
-            ),
-            Expanded(
-                child: ListView.builder(
-              padding:
-                  EdgeInsets.symmetric(horizontal: AppSize.paddingElements12),
-              itemBuilder: (context, index) => ChatPersoneCard(),
-            ))
-          ],
+        body: SafeArea(
+          child: Column(
+            children: [
+              // AppSize.sizedBox20,
+              // AppSize.sizedBox20,
+              Row(
+                children: [
+                  AppSize.sizedBox10,
+                  InkWell(
+                      onTap: () => Get.back(),
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: 20,
+                      )),
+                  Expanded(child: SearchContainer(onchange: (value) {})),
+                ],
+              ),
+              Expanded(
+                  child: ListView.builder(
+                padding:
+                    EdgeInsets.symmetric(horizontal: AppSize.paddingElements12),
+                itemBuilder: (context, index) => ChatPersoneCard(),
+              ))
+            ],
+          ),
         ),
       ),
     );

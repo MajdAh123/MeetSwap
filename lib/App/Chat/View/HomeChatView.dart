@@ -34,8 +34,6 @@ class HomeChatViewPage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    AppSize.sizedBox20,
-                    AppSize.sizedBox20,
                     SearchContainer(onchange: (value) {}),
                     Padding(
                       padding:

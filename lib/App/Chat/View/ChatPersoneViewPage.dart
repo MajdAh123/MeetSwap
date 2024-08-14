@@ -18,14 +18,16 @@ class ChatPersonViewPage extends GetView<ChatController> {
     return BackgroundWidget(
       child: Scaffold(
         appBar: UserChatAppBar(),
-        body: Column(
-          children: [
-            Expanded(
-                child: Obx(() => controller.isEmptyView.isTrue
-                    ? EmptyChatPersonView()
-                    : ListOfMessageBubbleWidget())),
-            BottomCharBar()
-          ],
+        body: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                  child: Obx(() => controller.isEmptyView.isTrue
+                      ? EmptyChatPersonView()
+                      : ListOfMessageBubbleWidget())),
+              BottomCharBar()
+            ],
+          ),
         ),
       ),
     );

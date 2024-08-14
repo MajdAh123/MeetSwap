@@ -11,7 +11,7 @@ class ListOfMessageBubbleWidget extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: AppSize.paddingElements12),
       children: [
-        AppSize.sizedBox20,
+        // AppSize.sizedBox20,
         MessageBubble(
           isMe: false,
           uniqKey: UniqueKey(),
