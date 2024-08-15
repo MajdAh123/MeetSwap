@@ -53,7 +53,7 @@ class GatePageView extends StatelessWidget {
                           SizedBox(
                             height: AppSize.height < 900
                                 ? AppSize.height * 0.06
-                                : AppSize.height * 0.1,
+                                : AppSize.height * 0.85,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
